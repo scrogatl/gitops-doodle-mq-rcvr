@@ -1,7 +1,7 @@
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
 # metadata:
-#   name: doodle-frontend
+#   name: doodle-mq-rcvr
 #   namespace: supreme-doodle
 #   annotations:
 #     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -14,6 +14,6 @@
 #         pathType: Prefix
 #         backend:
 #           service:
-#             name: frontend
+#             name: mq-rcvr
 #             port:
 #               number: 5000

@@ -8,16 +8,16 @@ FROM python:3.10-slim-bullseye
 
 # FROM base
 
-WORKDIR /frontend
+WORKDIR /mq-rcvr
 
-COPY frontend/requirements.txt /frontend/requirements.txt
+COPY mq-rcvr/requirements.txt /mq-rcvr/requirements.txt
 RUN pip3 install -r requirements.txt
 
 EXPOSE 5000
 
-ENV NEW_RELIC_APP_NAME=doodle-frontend
+ENV NEW_RELIC_APP_NAME=doodle-mq-rcvr
 # ENV OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED=true
-# ENV OTEL_SERVICE_NAME=frontend
+# ENV OTEL_SERVICE_NAME=mq-rcvr
 # ENV OTEL_RESOURCE_ATTRIBUTES=service.instance.id=19-4-6
 # ENV OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED=true
 # ENV OTEL_EXPORTER_OTLP_ENDPOINT=https://otlp.nr-data.net
@@ -28,7 +28,7 @@ ENV NEW_RELIC_APP_NAME=doodle-frontend
 
 # RUN opentelemetry-bootstrap -a install
 
-COPY frontend/src/ /frontend
+COPY mq-rcvr/src/ /mq-rcvr
 CMD newrelic-admin run-program flask run --host=0.0.0.0 -p 5000
 # CMD flask run --host=0.0.0.0 -p 5000
 # CMD opentelemetry-instrument --logs_exporter otlp flask run --debugger --host=0.0.0.0 -p 5000

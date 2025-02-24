@@ -7,7 +7,7 @@ on:
    branches: [ "main" ]
 
 jobs:
-  build-push-frontend:
+  build-push-mq-rcvr:
     runs-on: ubuntu-latest
     steps:
       
@@ -23,5 +23,5 @@ jobs:
 
       - name: Build
         run: |
-          docker build . --tag ghcr.io/scrogatl/doodle-frontend:latest 
-          docker push ghcr.io/scrogatl/doodle-frontend:latest
+          docker build . --tag ghcr.io/scrogatl/doodle-mq-rcvr:latest 
+          docker push ghcr.io/scrogatl/doodle-mq-rcvr:latest

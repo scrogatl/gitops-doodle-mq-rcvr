@@ -3,32 +3,32 @@ kind: Deployment
 metadata:
   labels:
     application: helloworld
-    service: frontend
+    service: mq-rcvr
     version: blue
     shard: blue
     doodle-version: v0.99.01
-  name: frontend
+  name: mq-rcvr
   namespace: supreme-doodle
 spec:
   replicas: 1
   selector:
     matchLabels:
       application: helloworld
-      service: frontend
+      service: mq-rcvr
       version: blue
       shard: blue
   template:
     metadata:
       labels:
         application: helloworld
-        service: frontend
+        service: mq-rcvr
         version: blue
         shard: blue
     spec:
       containers:
-      - name: frontend
-        # image: public.ecr.aws/z4m0n1r4/frontend
-        image: ghcr.io/scrogatl/doodle-frontend:latest
+      - name: mq-rcvr
+        # image: public.ecr.aws/z4m0n1r4/mq-rcvr
+        image: ghcr.io/scrogatl/doodle-mq-rcvr:latest
         imagePullPolicy: Always
         env:
         - name: HELLO_HOST

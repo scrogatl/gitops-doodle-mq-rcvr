@@ -22,8 +22,8 @@ rubyWorld    = os.environ.get('RUBY_WORLD', "50")
 
 def logit(message):
     timeString = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-    log.info(timeString + " - [frontend: " + shard + "] - " + message)
-    print(timeString + " - [frontend: " + shard + "] - " + message)
+    log.info(timeString + " - [mq-rcvr: " + shard + "] - " + message)
+    print(timeString + " - [mq-rcvr: " + shard + "] - " + message)
     
 
 # logit("worldHost: " + worldHost )
