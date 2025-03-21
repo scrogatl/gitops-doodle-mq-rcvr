@@ -8,7 +8,6 @@ def logit(message):
     timeString = datetime.now().strftime("%H:%M:%S.%f")[:-3]
     logger.info(timeString + " - [mq-rcvr] - " + message)
 
-
 def main():
     queue_name = os.environ.get('QUEUE', "[QUEUE NOT SET]")
     rmq_host = os.environ.get('RMQ_HOST', "[HOST NOT SET")
